@@ -97,5 +97,6 @@ class Rectangle:
             return 0
         return 2 * (self.width + self.height)
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     help(Rectangle)
