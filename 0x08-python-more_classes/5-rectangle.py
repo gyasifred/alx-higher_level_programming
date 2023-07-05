@@ -102,9 +102,16 @@ class Rectangle:
 
     def __repr__(self):
         """
-        Returns a string representation of the rectangle that can be used to recreate the object.
+        Returns a string representation of the rectangle that can 
+        be used to recreate the object.
 
         Returns:
             str: The string representation of the rectangle.
         """
         return f"Rectangle({self.width}, {self.height})"
+
+    def __del__(self):
+        """
+        Prints a farewell message when the object is deleted.
+        """
+        print("Bye rectangle...")
