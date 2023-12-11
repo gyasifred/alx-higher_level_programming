@@ -31,10 +31,10 @@ class Rectangle(Base):
                              If not provided, a unique identifier will be assigned.
         """
         super().__init__(id)
-        self.width = width
-        self.height = height
-        self.x = x
-        self.y = y
+        self.__width = width
+        self.__height = height
+        self.__x = x
+        self.__y = y
 
     @property
     def width(self):
@@ -131,3 +131,34 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
         else:
             self.__y = value
+
+    def area(self):
+        """
+        Calculate the area of the rectangle.
+
+        Returns:
+        - int: The area of the rectangle.
+        """
+        return self.__width * self.__height
+
+    def display(self):
+        """
+        Display the rectangle with '#' characters.
+
+        This method prints the rectangle to the standard output,
+        taking into account the x and y coordinates.
+        """
+        for _ in range(self.y):
+            print()
+
+        for _ in range(self.height):
+            print(' ' * self.x + '#' * self.width)
+
+    def __str__(self):
+        """
+        Return a string representation of the rectangle.
+
+        Returns:
+        - str: A string representation of the rectangle.
+        """
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
