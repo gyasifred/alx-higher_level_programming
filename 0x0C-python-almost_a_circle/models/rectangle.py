@@ -154,13 +154,14 @@ class Rectangle(Base):
         for _ in range(self.height):
             print(' ' * self.x + '#' * self.width)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
-       Update the attributes of the rectangle.
+        Update the attributes of the rectangle.
 
-       Parameters:
-       - args: The values to update the attributes in the order: id, width, height, x, y.
-       """
+        Parameters:
+        - args: The values to update the attributes in the order: id, width, height, x, y.
+        - kwargs: The key-value pairs to update the attributes. Keys represent attributes.
+        """
         if args:
             if len(args) >= 1:
                 self.id = args[0]
@@ -172,6 +173,9 @@ class Rectangle(Base):
                 self.x = args[3]
             if len(args) >= 5:
                 self.y = args[4]
+        elif kwargs:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
     def __str__(self):
         """
